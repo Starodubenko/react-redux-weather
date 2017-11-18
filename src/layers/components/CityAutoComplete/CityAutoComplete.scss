@@ -1,11 +1,11 @@
-.EmptyPagePlaceholderPresenter {
+.CityAutoComplete {
   display: flex;
   flex-grow: 1;
   justify-content: center;
   align-items: center;
 }
 
-.EmptyPagePlaceholderPresenter__Message {
+.CityAutoComplete__Message {
   font-size: xx-large;
   font-family: monospace;
 }

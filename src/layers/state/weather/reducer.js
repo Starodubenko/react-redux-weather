@@ -22,11 +22,11 @@ const initialState = {
 }
 
 const reducer = {
-    [addWeather.toString()]: (state, { weather }) => ({
+    [addWeather]: (state, { weather }) => ({
         ...state,
         [weather.cityId]: weather,
     }),
-    [removeWeather.toString()]: (state, { cityId }) => update(state, {
+    [removeWeather]: (state, { cityId }) => update(state, {
         $unset: [cityId]
     }),
 };

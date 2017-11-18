@@ -1,5 +1,13 @@
-import EmptyPagePlaceholderPresenter from './EmptyPagePlaceholderPresenter'
+import { connect } from 'react-redux';
+import Presenter from './WeatherCard';
 
-const EmptyPagePlaceholder = EmptyPagePlaceholderPresenter;
-export default EmptyPagePlaceholder;
+const mapStateToProps = (state, props) => ({
+    
+})
+
+const mapDispatchToProps = {
+    
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Presenter);
 
