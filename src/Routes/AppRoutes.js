@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Route } from "react-router";
 
-import Main from "../layers";
+import { Main } from "../layers/pages";
 
 import './AppRouter.scss'
 

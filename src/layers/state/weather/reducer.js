@@ -1,9 +1,10 @@
-import { combineActions, handleAction } from 'redux-actios';
+import { handleActions } from 'redux-actions';
 import update from 'immutability-helper';
 
+import { WEATHER_REDUCER_NAME_SPACE as NS } from '../../utils';
 import { addWeather, removeWeather} from './actions';
 
-const defaultState = {
+const initialState = {
     '1': {
         id: '1',
         name: 'Moscow',
@@ -20,7 +21,7 @@ const defaultState = {
     }
 }
 
-const handlers = combineActions({
+const reducer = {
     [addWeather.toString()]: (state, { weather }) => ({
         ...state,
         [weather.cityId]: weather,
@@ -28,6 +29,6 @@ const handlers = combineActions({
     [removeWeather.toString()]: (state, { cityId }) => update(state, {
         $unset: [cityId]
     }),
-})
+};
 
-export const weatherReducer = handleAction(handlers, defaultState);
+export const weatherReducer = { [NS]: handleActions(reducer, initialState) };
