@@ -1,4 +1,9 @@
 .Tiles {
+  height: 100%;
+  overflow-x: hidden; 
+}
+
+.Tiles__Wrapper {
   display: flex;
   flex-grow: 1;
   justify-content: space-evenly;

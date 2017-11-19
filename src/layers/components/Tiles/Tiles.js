@@ -16,7 +16,9 @@ export default class Tiles extends React.Component {
     render() {
         return (
             <div className="Tiles">
-                {this.renderTiles()}
+                <div className="Tiles__Wrapper">
+                    {this.renderTiles()}
+                </div>
             </div>
         )
     }

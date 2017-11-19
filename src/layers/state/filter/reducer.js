@@ -9,7 +9,7 @@ const initialState = {
 }
 
 const reducer = {
-    [setTemperatureFilter]: (state, payload ) => update(state, {
+    [setTemperatureFilter]: (state, { payload } ) => update(state, {
         degree: { $set: payload.degree },
     }),
 };
