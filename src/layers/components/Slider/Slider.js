@@ -24,17 +24,17 @@ class Slider extends React.Component {
     render() {
         return (
             <div className="Slider">
-                <div class="mdc-slider" tabindex="0" role="slider"
+                <div className="mdc-slider" tabIndex="0" role="slider"
                 aria-valuemin={this.props.min} aria-valuemax={this.props.max} aria-valuenow={this.props.value}
                 aria-label="Select Value">
-                    <div class="mdc-slider__track-container">
-                        <div class="mdc-slider__track"></div>
+                    <div className="mdc-slider__track-container">
+                        <div className="mdc-slider__track"></div>
                     </div>
-                    <div class="mdc-slider__thumb-container">
-                        <svg class="mdc-slider__thumb" width="21" height="21">
+                    <div className="mdc-slider__thumb-container">
+                        <svg className="mdc-slider__thumb" width="21" height="21">
                             <circle cx="10.5" cy="10.5" r="7.875"></circle>
                         </svg>
-                        <div class="mdc-slider__focus-ring"></div>
+                        <div className="mdc-slider__focus-ring"></div>
                         {this.props.indicator}
                     </div>
                 </div>

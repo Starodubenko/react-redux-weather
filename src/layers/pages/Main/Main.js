@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Header from '../../components/Header';
-import Tiles from '../../components/Tiles';
+
+import WeatherCardList from '../../components/WeatherCardList';
 import AutoComplete from '../../components/AutoComplete';
 import WeatherTemperatureFilter from '../../components/WeatherTemperatureFilter';
 import Button from 'material-ui/Button';
@@ -25,7 +26,7 @@ export default class Main extends Component {
                     />
                 </div>
                 <div className="Main__Tiles">
-                    <Tiles />
+                    <WeatherCardList />
                 </div>
             </div>
         );

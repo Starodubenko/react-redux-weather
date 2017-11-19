@@ -1,15 +1,18 @@
 import * as React from 'react';
 import propTypes from 'prop-types';
+import Paper from 'material-ui/Paper';
+
 import WeatherCard from '../WeatherCard';
+import RemoveCityButton from '../RemoveCityButton';
 
 import './Tiles.scss'
 
 export default class Tiles extends React.Component {
     renderTiles = () => {
-        return this.props.weatherList.map(item => (
-            <div className="Tiles__Item">
+        return this.props.list.map((item, index) => (
+            <Paper className="Tiles__Item" zdepth={1} key={`Tiles__Item_${index}`}>
                 {item}
-            </div>
+            </Paper>
         ))
     }
 
@@ -25,46 +28,25 @@ export default class Tiles extends React.Component {
 };
 
 Tiles.propTypes = {
-    weatherList: propTypes.arrayOf(propTypes.node)
+    list: propTypes.arrayOf(propTypes.node)
 }
 
 Tiles.defaultProps = {
-    weatherList: [
+    list: [
         <WeatherCard
+            key="WeatherCard_1"
             cityName="Astana"
-            degree="-10"
-            wind="10"
-            preassure="700"
+            degree={-10}
+            wind={10}
+            preassure={700}
+            actionComponent={<RemoveCityButton />}
         />,
         <WeatherCard
+            key="WeatherCard_2"
             cityName="Moscow"
-            degree="0"
-            wind="10"
-            preassure="750"
-        />,
-        <WeatherCard
-            cityName="Moscow"
-            degree="0"
-            wind="10"
-            preassure="750"
-        />,
-        <WeatherCard
-            cityName="Moscow"
-            degree="0"
-            wind="10"
-            preassure="750"
-        />,
-        <WeatherCard
-            cityName="Moscow"
-            degree="0"
-            wind="10"
-            preassure="750"
-        />,
-        <WeatherCard
-            cityName="Moscow"
-            degree="0"
-            wind="10"
-            preassure="750"
+            degree={0}
+            wind={10}
+            preassure={750}
         />,
     ]
 }

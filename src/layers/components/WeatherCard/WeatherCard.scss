@@ -5,6 +5,16 @@
 }
 
 .WeatherCard__Header {
+  display: flex;
+  justify-content: space-between;
+  flex-basis: 40px;
+}
+
+.WeatherCard__CityName {
+  flex-grow: 1;
+}
+
+.WeatherCard__Action {
   flex-basis: 40px;
 }
 

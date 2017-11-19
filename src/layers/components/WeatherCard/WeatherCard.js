@@ -3,10 +3,15 @@ import propTypes from 'prop-types';
 
 import './WeatherCard.scss'
 
-const WeatherCard = ({ cityName, degree, wind, preassure}) => (
+const WeatherCard = ({ cityName, degree, wind, preassure, actionComponent }) => (
     <div className="WeatherCard">
         <div className="WeatherCard__Header">
-            {cityName}
+            <div className="WeatherCard__CityName">
+                {cityName}
+            </div>
+            <div className="WeatherCard__Action">
+                {actionComponent}
+            </div>
         </div>
         <div className="WeatherCard__MainInfo">
             {degree}
@@ -20,10 +25,10 @@ const WeatherCard = ({ cityName, degree, wind, preassure}) => (
 
 WeatherCard.propTypes = {
     cityName: propTypes.string,
-    degree: propTypes.string,
-    wind: propTypes.string,
-    preassure: propTypes.string
-
+    degree: propTypes.number,
+    wind: propTypes.number,
+    preassure: propTypes.number,
+    actionComponent: propTypes.node,
 }
 
 export default WeatherCard;

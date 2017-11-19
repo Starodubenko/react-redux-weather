@@ -10,28 +10,28 @@ const initialState = {
         name: 'Moscow',
         degree: 7,
         wind: 5,
-        pressure: '752',
+        pressure: 752,
     },
     '2': {
         id: '2',
         name: 'SPB',
         degree: -2,
         wind: 8,
-        pressure: '730',
+        pressure: 730,
     },
     '3': {
-        id: '2',
+        id: '3',
         name: 'SPB',
         degree: 3,
         wind: 8,
-        pressure: '730',
+        pressure: 730,
     },
     '4': {
-        id: '2',
+        id: '4',
         name: 'SPB',
         degree: -5,
         wind: 8,
-        pressure: '730',
+        pressure: 730,
     }
 }
 
