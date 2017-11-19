@@ -1,0 +1,15 @@
+.Tiles {
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.Tiles__Item {
+  display: flex;
+  height: 200px;
+  width: 25%;
+  flex-grow: 1;
+
+  background-color: rgb(88, 206, 88);
+}

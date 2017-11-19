@@ -1,11 +1,17 @@
 .WeatherCard {
   display: flex;
+  flex-direction: column;
   flex-grow: 1;
-  justify-content: center;
-  align-items: center;
 }
 
-.WeatherCard__Message {
-  font-size: xx-large;
-  font-family: monospace;
+.WeatherCard__Header {
+  flex-basis: 40px;
+}
+
+.WeatherCard__MainInfo {
+  flex-grow: 1;
+}
+
+.WeatherCard__AdditionalInfo {
+  flex-basis: 60px;
 }

@@ -1,7 +1,20 @@
 .Main {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-
+  display: grid;
+  width: 100%;
   background-color: rgb(255, 196, 196);
+
+  grid-template-columns: auto repeat(4, 16.6%) auto;
+  grid-template-rows: 100px auto;
+  grid-template-areas: 
+    "header header header header header header"
+    ". tiles tiles tiles tiles .";
+}
+
+.Main__Header {
+  grid-area: header;
+  background-color: rgb(255, 249, 196);
+}
+.Main__Tiles {
+  grid-area: tiles;
+  background-color: rgb(196, 255, 232);
 }
