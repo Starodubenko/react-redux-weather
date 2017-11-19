@@ -2,7 +2,7 @@ import * as React from 'react';
 import propTypes from 'prop-types';
 
 import WeatherCard from '../WeatherCard';
-import Tiles from '../Tiles';
+import Tiles from '../common/Tiles';
 import RemoveCityButton from '../RemoveCityButton';
 
 import './WeatherCardList.scss'

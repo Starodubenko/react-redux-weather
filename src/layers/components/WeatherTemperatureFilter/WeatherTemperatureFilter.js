@@ -1,7 +1,7 @@
 import * as React from 'react';
 import propTypes from 'prop-types';
 
-import Slider from '../Slider';
+import Slider from '../common/Slider';
 import TemperatureDegreeIndicator from '../TemperatureDegreeIndicator';
 
 import './WeatherTemperatureFilter.scss'

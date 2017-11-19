@@ -2,8 +2,8 @@ import * as React from 'react';
 import propTypes from 'prop-types';
 import Paper from 'material-ui/Paper';
 
-import WeatherCard from '../WeatherCard';
-import RemoveCityButton from '../RemoveCityButton';
+import WeatherCard from '../../WeatherCard';
+import RemoveCityButton from '../../RemoveCityButton';
 
 import './Tiles.scss'
 
