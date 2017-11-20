@@ -8,42 +8,7 @@ import match from 'autosuggest-highlight/match';
 import parse from 'autosuggest-highlight/parse';
 import { withStyles } from 'material-ui/styles';
 
-const suggestions = [
-  { label: 'Afghanistan' },
-  { label: 'Aland Islands' },
-  { label: 'Albania' },
-  { label: 'Algeria' },
-  { label: 'American Samoa' },
-  { label: 'Andorra' },
-  { label: 'Angola' },
-  { label: 'Anguilla' },
-  { label: 'Antarctica' },
-  { label: 'Antigua and Barbuda' },
-  { label: 'Argentina' },
-  { label: 'Armenia' },
-  { label: 'Aruba' },
-  { label: 'Australia' },
-  { label: 'Austria' },
-  { label: 'Azerbaijan' },
-  { label: 'Bahamas' },
-  { label: 'Bahrain' },
-  { label: 'Bangladesh' },
-  { label: 'Barbados' },
-  { label: 'Belarus' },
-  { label: 'Belgium' },
-  { label: 'Belize' },
-  { label: 'Benin' },
-  { label: 'Bermuda' },
-  { label: 'Bhutan' },
-  { label: 'Bolivia, Plurinational State of' },
-  { label: 'Bonaire, Sint Eustatius and Saba' },
-  { label: 'Bosnia and Herzegovina' },
-  { label: 'Botswana' },
-  { label: 'Bouvet Island' },
-  { label: 'Brazil' },
-  { label: 'British Indian Ocean Territory' },
-  { label: 'Brunei Darussalam' },
-];
+
 
 function renderInput(inputProps) {
   const { classes, autoFocus, value, ref, ...other } = inputProps;
@@ -101,25 +66,6 @@ function getSuggestionValue(suggestion) {
   return suggestion.label;
 }
 
-function getSuggestions(value) {
-  const inputValue = value.trim().toLowerCase();
-  const inputLength = inputValue.length;
-  let count = 0;
-
-  return inputLength === 0
-    ? []
-    : suggestions.filter(suggestion => {
-        const keep =
-          count < 5 && suggestion.label.toLowerCase().slice(0, inputLength) === inputValue;
-
-        if (keep) {
-          count += 1;
-        }
-
-        return keep;
-      });
-}
-
 const styles = theme => ({
   container: {
     flexGrow: 1,
@@ -148,25 +94,19 @@ const styles = theme => ({
 class IntegrationAutosuggest extends React.Component {
   state = {
     value: '',
-    suggestions: [],
-  };
+  }
 
   handleSuggestionsFetchRequested = ({ value }) => {
-    this.setState({
-      suggestions: getSuggestions(value),
-    });
+    this.setState({ value });
+    this.props.fetchRequest(value);
   };
 
   handleSuggestionsClearRequested = () => {
-    this.setState({
-      suggestions: [],
-    });
+    this.props.clearSuggestions();
   };
 
   handleChange = (event, { newValue }) => {
-    this.setState({
-      value: newValue,
-    });
+    this.props.onChange(newValue);
   };
 
   render() {
@@ -181,16 +121,16 @@ class IntegrationAutosuggest extends React.Component {
           suggestion: classes.suggestion,
         }}
         renderInputComponent={renderInput}
-        suggestions={this.state.suggestions}
         onSuggestionsFetchRequested={this.handleSuggestionsFetchRequested}
         onSuggestionsClearRequested={this.handleSuggestionsClearRequested}
         renderSuggestionsContainer={renderSuggestionsContainer}
         getSuggestionValue={getSuggestionValue}
         renderSuggestion={renderSuggestion}
+        suggestions={this.props.suggestions}
         inputProps={{
           autoFocus: true,
           classes,
-          placeholder: 'Search a country (start with a)',
+          placeholder: 'Start typing city name',
           value: this.state.value,
           onChange: this.handleChange,
         }}
@@ -200,7 +140,17 @@ class IntegrationAutosuggest extends React.Component {
 }
 
 IntegrationAutosuggest.propTypes = {
-  classes: PropTypes.object.isRequired,
+  classes: PropTypes.object,
+  fetchRequest: PropTypes.func,
+  onChange: PropTypes.func,
+  clearSuggestions: PropTypes.func,
+  suggestions: PropTypes.any,
 };
+
+IntegrationAutosuggest.defaultProps = {
+  suggestions: [],
+};
+
+
 
 export default withStyles(styles)(IntegrationAutosuggest);

@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
 import Presenter from './WeatherCardList';
 
-import { getWeather } from '../../core';
+import { getSelectedCities } from '../../core';
 
 const mapStateToProps = (state) => ({
-    weatherList: getWeather(state),
+    cityList: getSelectedCities(state),
 })
 
 export default connect(mapStateToProps)(Presenter);

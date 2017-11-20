@@ -9,7 +9,7 @@ import './WeatherCardList.scss'
 
 export default class WeatherCardList extends React.Component {
     renderWeatherCardList = () => {
-        return this.props.weatherList.map(item => (
+        return this.props.cityList.map(item => (
             <WeatherCard
                 cityName={item.name}
                 degree={item.degree}
@@ -30,7 +30,7 @@ export default class WeatherCardList extends React.Component {
 };
 
 WeatherCardList.propTypes = {
-    weatherList: propTypes.arrayOf(propTypes.shape({
+    cityList: propTypes.arrayOf(propTypes.shape({
         id: propTypes.string,
         name: propTypes.string,
         degree: propTypes.number,
@@ -40,7 +40,7 @@ WeatherCardList.propTypes = {
 }
 
 WeatherCardList.defaultProps = {
-    weatherList: []
+    cityList: []
 }
 
 

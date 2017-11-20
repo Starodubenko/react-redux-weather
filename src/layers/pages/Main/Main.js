@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import Header from '../../components/common/Header';
 
 import WeatherCardList from '../../components/WeatherCardList';
-import AutoComplete from '../../components/AutoComplete';
+import CityAutoComplete from '../../components/CityAutoComplete';
 import WeatherTemperatureFilter from '../../components/WeatherTemperatureFilter';
 import Button from 'material-ui/Button';
 
@@ -13,10 +13,10 @@ export default class Main extends Component {
         return (
             <div className="Main">
                 <div className="Main__Header">
-                    <Header 
+                    <Header
                     leftComponent={
                         <div className="WeatherControls">
-                            <AutoComplete/>
+                            <CityAutoComplete />
                             <Button color="primary">Add</Button>
                         </div>
                     }
