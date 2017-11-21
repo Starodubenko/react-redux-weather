@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Presenter from './CityAutoComplete';
-import { startCityFetch, selectCity, getSuggestions, clearSuggestions, setValue } from '../../core';
+import { startCityFetch, selectValue, getSuggestions, clearSuggestions, addSelectedCity } from '../../core';
 
 const mapStateToProps = state => ({
     suggestions: getSuggestions(state),
@@ -8,9 +8,9 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = {
     startCityFetch,
-    selectCity,
+    selectCity: selectValue,
     clearSuggestions,
-    setValue,
+    addSelectedCity,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Presenter);

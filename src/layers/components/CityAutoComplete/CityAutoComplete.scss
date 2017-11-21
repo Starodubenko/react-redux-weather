@@ -1,11 +1,6 @@
 .CityAutoComplete {
   display: flex;
-  flex-grow: 1;
-  justify-content: center;
   align-items: center;
-}
-
-.CityAutoComplete__Message {
-  font-size: xx-large;
-  font-family: monospace;
+  flex-grow: 1;
+  height: 100%;
 }

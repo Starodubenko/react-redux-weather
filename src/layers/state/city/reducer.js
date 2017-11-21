@@ -10,10 +10,10 @@ const initialState = {
 
 const reducer = {
     [addCity]: (state, { payload }) => update(state, {
-        $selectedCities: { $push: payload.cityId}
+        selectedCities: { $push: [payload.cityId] }
     }),
     [removeCity]: (state, { payload }) => update(state, {
-        $selectedCities: { $$unshift: payload.cityId }
+        selectedCities: { $set: payload.cityIds }
     }),
 };
 

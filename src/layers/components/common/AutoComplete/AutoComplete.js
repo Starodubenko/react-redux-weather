@@ -96,9 +96,14 @@ class IntegrationAutosuggest extends React.Component {
     value: '',
   }
 
+  clearValue = () => {
+    this.setState({ value: '' });
+  }
+
   handleSuggestionsFetchRequested = ({ value }) => {
-    this.setState({ value });
-    this.props.fetchRequest(value);
+    if (value && this.state.value !== value) {
+      this.props.fetchRequest(value);
+    }
   };
 
   handleSuggestionsClearRequested = () => {
@@ -106,12 +111,19 @@ class IntegrationAutosuggest extends React.Component {
   };
 
   handleChange = (event, { newValue }) => {
-    this.props.onChange(newValue);
+    this.setState({ value: newValue });
   };
 
-  render() {
-    const { classes } = this.props;
+  onSuggestionSelected = (event, { suggestion, suggestionValue, suggestionIndex, sectionIndex, method }) => {
+    this.props.onChange(suggestion.id);
+  }
 
+  componentDidMount() {
+    this.props.returnRef(this);
+  }
+
+  render() {
+    const { classes, suggestions } = this.props;
     return (
       <Autosuggest
         theme={{
@@ -124,9 +136,10 @@ class IntegrationAutosuggest extends React.Component {
         onSuggestionsFetchRequested={this.handleSuggestionsFetchRequested}
         onSuggestionsClearRequested={this.handleSuggestionsClearRequested}
         renderSuggestionsContainer={renderSuggestionsContainer}
+        onSuggestionSelected={this.onSuggestionSelected}
         getSuggestionValue={getSuggestionValue}
         renderSuggestion={renderSuggestion}
-        suggestions={this.props.suggestions}
+        suggestions={suggestions}
         inputProps={{
           autoFocus: true,
           classes,
@@ -145,6 +158,7 @@ IntegrationAutosuggest.propTypes = {
   onChange: PropTypes.func,
   clearSuggestions: PropTypes.func,
   suggestions: PropTypes.any,
+  returnRef: PropTypes.func,
 };
 
 IntegrationAutosuggest.defaultProps = {

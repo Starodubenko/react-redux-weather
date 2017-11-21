@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
 import Presenter from './RemoveCityButton';
-import { removeCity } from '../../core';
+import { startRemoveCity } from '../../core';
 
 const mapDispatchToProps = {
-    removeCity,
+    removeCity: startRemoveCity,
 }
 
 export default connect(null, mapDispatchToProps)(Presenter);

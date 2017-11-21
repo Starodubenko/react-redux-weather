@@ -85,6 +85,6 @@ export const fetchCities = (value) => {
               return keep;
             });
 
-        setTimeout(() => resolve(result), 1000);
+        setTimeout(() => resolve(result), 0);
     })
 }
