@@ -1,12 +1,14 @@
-import {createStore, combineReducers, applyMiddleware, compose} from 'redux';
+import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import createHistory from 'history/createBrowserHistory'
-import { routerReducer, routerMiddleware} from 'react-router-redux'
+import { routerReducer, routerMiddleware } from 'react-router-redux'
+import createSagaMiddleware from 'redux-saga'
 
 import { filterReducer, weatherReducer, entityReducer, autocompleteReducer } from '../layers/state';
-import { cityMiddleware } from '../layers/core';
+import { sagaRunner } from '../layers/core';
 
 export const history = createHistory();
 const middleware = routerMiddleware(history);
+const sagaMiddleware = createSagaMiddleware();
 
 const composeEnhancers =
     typeof window === 'object' &&
@@ -16,7 +18,7 @@ const composeEnhancers =
 const enhancer = composeEnhancers(
     applyMiddleware(
         ...middleware, 
-        cityMiddleware,
+        sagaMiddleware,
     ),
 );
 
@@ -30,3 +32,5 @@ export const store = createStore(
     }),
     enhancer
 );
+
+sagaRunner(sagaMiddleware);
