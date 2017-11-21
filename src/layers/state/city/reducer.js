@@ -5,7 +5,7 @@ import { CITY_REDUCER_NAME_SPACE as NS } from '../../utils';
 import { addCity, removeCity } from './actions';
 
 const initialState = {
-    selectedCities: ['1', '2', '3', '4'],
+    selectedCities: ['1', '2'],
 }
 
 const reducer = {

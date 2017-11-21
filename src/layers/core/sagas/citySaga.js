@@ -1,5 +1,5 @@
 import { select, call, put, takeLatest, takeEvery } from 'redux-saga/effects';
-import { map, pull } from 'lodash-es';
+import { map, without } from 'lodash-es';
 import { fetchCities } from '../../api';
 import {
   startCityFetch,
@@ -52,7 +52,7 @@ function* removeCityById(action) {
   const state = yield select();
   const selectedCityIds = getSelectedCityIds(state);
 
-  const filteredSelectedCityIds = pull(selectedCityIds, action.payload.cityId);
+  const filteredSelectedCityIds = without(selectedCityIds, action.payload.cityId);
 
   yield put(removeCity({ cityIds: filteredSelectedCityIds }))
 }

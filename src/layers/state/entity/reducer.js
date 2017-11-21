@@ -11,7 +11,7 @@ const initialState = {
         data: [{
             id: '1',
             name: 'Moscow',
-            degree: 7,
+            degree: 2,
             wind: 5,
             pressure: 752,
         },{

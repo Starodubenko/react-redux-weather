@@ -10,7 +10,10 @@ class WeatherTemperatureFilter extends React.Component {
     onTemperetureSliderChange = (degree) => this.props.setTemperatureFilter({ degree: Math.round(degree) });
 
     render() {
-        const { range, value } = this.props;
+        let { range, value } = this.props;
+        if (value == null) {
+            value = range.min;
+        }
         return (
             <div className="WeatherTemperatureFilter">
                 <Slider 

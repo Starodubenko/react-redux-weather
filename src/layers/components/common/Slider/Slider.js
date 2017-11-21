@@ -12,6 +12,10 @@ class Slider extends React.Component {
         this.slider.listen('MDCSlider:input', this.onChange);
     }
 
+    componentDidUpdate() {
+        this.slider = new MDCSlider(document.querySelector('.mdc-slider'));
+    }
+
     shouldComponentUpdate(nextProps, nextState) {
         if (nextProps.max !== this.props.max ||
             nextProps.min !== this.props.min) {
