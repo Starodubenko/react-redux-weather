@@ -14,8 +14,26 @@
   display: flex;
   height: 200px;
   width: 24%;
+  min-width: 240px;
   margin: 0.5%;
   flex-grow: 1;
 
-  background-color: rgb(88, 206, 88);
+  &.Tiles-enter {
+    transform: scale(0);
+  }
+  
+  &.Tiles-enter-active {
+    transform: scale(1);
+    transition: transform 0.3s ease;
+  }
+  
+  &.Tiles-leave {
+    transform: scale(1);
+  }
+  
+  &.Tiles-leave-active {
+    transform: scale(0);
+    transition: transform 0.3s ease;
+  }
 }
+

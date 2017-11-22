@@ -37,31 +37,31 @@
 const suggestions = [{
   id: '1',
   name: 'Moscow',
-  degree: 1,
+  degree: 5,
   wind: 5,
   pressure: 752,
 },{
   id: '2',
   name: 'SPB',
-  degree: -1,
+  degree: 5,
   wind: 8,
   pressure: 730,
 },{
   id: '3',
   name: 'SPB1',
-  degree: 3,
+  degree: 5,
   wind: 8,
   pressure: 730,
 },{
   id: '4',
   name: 'SPB2',
-  degree: -5,
+  degree: 5,
   wind: 8,
   pressure: 730,
 },{
   id: '5',
   name: 'Alma-ata',
-  degree: 7,
+  degree: 5,
   wind: 5,
   pressure: 752,
 }];

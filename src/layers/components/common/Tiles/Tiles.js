@@ -1,6 +1,7 @@
 import * as React from 'react';
 import propTypes from 'prop-types';
 import Paper from 'material-ui/Paper';
+import { CSSTransitionGroup } from 'react-transition-group'
 
 import WeatherCard from '../../WeatherCard';
 import RemoveCityButton from '../../RemoveCityButton';
@@ -19,9 +20,14 @@ export default class Tiles extends React.Component {
     render() {
         return (
             <div className="Tiles">
-                <div className="Tiles__Wrapper">
+                <CSSTransitionGroup
+                    transitionName="Tiles"
+                    component="div"
+                    className="Tiles__Wrapper"
+                    transitionEnterTimeout={300}
+                    transitionLeaveTimeout={300}>
                     {this.renderTiles()}
-                </div>
+                </CSSTransitionGroup>
             </div>
         )
     }
