@@ -1,34 +1,14 @@
 import * as React from 'react';
 import propTypes from 'prop-types';
+import { getCesiumDegree } from '../../utils';
 
 import './TemperatureDegreeIndicator.scss'
 
-class TemperatureDegreeIndicator extends React.Component {
-    renderValue = () => {
-        const value = this.props.value;
-        let resultString = '';
-
-        if (value === undefined){
-            return resultString;
-        }
-
-        if (value > 0) {
-            resultString = '+';
-        }
-
-        resultString = resultString + value + '°C';
-        
-        return resultString;
-    }
-
-    render() {
-        return (
-            <div className="TemperatureDegreeIndicator">
-                {this.renderValue()}
-            </div>
-            )
-    }
-}
+const TemperatureDegreeIndicator = ({ value }) => (
+    <div className="TemperatureDegreeIndicator">
+        {getCesiumDegree(value)}
+    </div>
+)
 
 TemperatureDegreeIndicator.propTypes = {
     value: propTypes.number,

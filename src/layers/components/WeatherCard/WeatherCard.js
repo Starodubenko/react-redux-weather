@@ -1,5 +1,6 @@
 import * as React from 'react';
 import propTypes from 'prop-types';
+import { getCesiumDegree, getWind, getPressure } from '../../utils';
 
 import './WeatherCard.scss'
 
@@ -14,11 +15,20 @@ const WeatherCard = ({ cityName, degree, wind, preassure, actionComponent }) => 
             </div>
         </div>
         <div className="WeatherCard__MainInfo">
-            {degree}
+            <div className="WeatherCard__WeatherIcon">
+                icon
+            </div>
+            <div className="WeatherCard__WeatherDegree">
+                {getCesiumDegree(degree)}
+            </div>
         </div>
         <div className="WeatherCard__AdditionalInfo">
-            {wind}
-            {preassure}
+            <div className="WeatherCard__AdditionalInfoCell">
+                {getWind(wind)}
+            </div>
+            <div className="WeatherCard__AdditionalInfoCell">
+                {getPressure(preassure)}
+            </div>
         </div>
     </div>
 );

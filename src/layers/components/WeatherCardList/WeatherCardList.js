@@ -14,7 +14,7 @@ export default class WeatherCardList extends React.Component {
                 cityName={item.name}
                 degree={item.degree}
                 wind={item.wind}
-                preassure={item.preassure}
+                preassure={item.pressure}
                 actionComponent={<RemoveCityButton cityId={item.id} />}
             />
         ))

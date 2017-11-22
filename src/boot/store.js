@@ -17,7 +17,7 @@ const composeEnhancers =
 
 const enhancer = composeEnhancers(
     applyMiddleware(
-        ...middleware, 
+        ...middleware,
         sagaMiddleware,
     ),
 );
