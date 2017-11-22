@@ -5,10 +5,10 @@ import './Header.scss'
 
 const Header = ({ leftComponent, rightComponent }) => (
     <div className="Header">
-        <div className="Header__LeftSide">
+        <div className="Header__Cell">
             {leftComponent}
         </div>
-        <div className="Header__RigthSide">
+        <div className="Header__Cell">
             {rightComponent}
         </div>
     </div>
