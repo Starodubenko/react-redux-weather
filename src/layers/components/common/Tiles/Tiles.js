@@ -11,7 +11,7 @@ import './Tiles.scss'
 export default class Tiles extends React.Component {
     renderTiles = () => {
         return this.props.list.map((item, index) => (
-            <Paper className="Tiles__Item" zdepth={1} key={`Tiles__Item_${index}`}>
+            <Paper className="Tiles__Item" zdepth={1} key={item.key}>
                 {item}
             </Paper>
         ))
