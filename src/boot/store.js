@@ -3,7 +3,7 @@ import createHistory from 'history/createBrowserHistory'
 import { routerReducer, routerMiddleware } from 'react-router-redux'
 import createSagaMiddleware from 'redux-saga'
 
-import { filterReducer, weatherReducer, entityReducer, autocompleteReducer } from '../layers/state';
+import { filterReducer, entityReducer, autocompleteReducer } from '../layers/state';
 import { sagaRunner } from '../layers/core';
 
 export const history = createHistory();
@@ -26,7 +26,6 @@ export const store = createStore(
     combineReducers({
         router: routerReducer,
         ...filterReducer, 
-        ...weatherReducer,
         ...entityReducer,
         ...autocompleteReducer,
     }),

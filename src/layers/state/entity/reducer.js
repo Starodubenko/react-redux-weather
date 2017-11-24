@@ -2,26 +2,27 @@ import { handleActions } from 'redux-actions';
 import update from 'immutability-helper';
 
 import { ENTITY_REDUCER_NAME_SPACE as NS } from '../../utils';
-import { startCityFetch, endCityFetch, failCityFetch} from './actions';
+import { 
+    startCityFetch,
+    endCityFetch,
+    failCityFetch,
+    startWeatherFetch,
+    endWeatherFetch,
+    failWeatherFetch,
+    removeWeather,
+} from './actions';
 
 const initialState = {
     cities: {
         isFetching: false,
         didInvalidate: false,
-        data: [{
-            id: '1',
-            name: 'Moscow',
-            degree: 2,
-            wind: 5,
-            pressure: 752,
-        },{
-            id: '2',
-            name: 'SPB',
-            degree: -2,
-            wind: 8,
-            pressure: 730,
-        }]
-      }
+        data: []
+    },
+    weather: {
+        isFetching: false,
+        didInvalidate: false,
+        data: []
+    }
 }
 
 const reducer = {
@@ -42,6 +43,30 @@ const reducer = {
             isFetching: { $set: false },
             didInvalidate: { $set: false },
             data: { $set: [] }
+        }
+    }),
+    [startWeatherFetch]: (state, { payload }) => update(state, {
+        weather: {
+            isFetching: { $set: true }
+        }
+    }),
+    [endWeatherFetch]: (state, { payload }) => update(state, {
+        weather: {
+            isFetching: { $set: false },
+            didInvalidate: { $set: false },
+            data: { $set: payload }
+        }
+    }),
+    [failWeatherFetch]: (state, { payload }) => update(state, {
+        weather: {
+            isFetching: { $set: false },
+            didInvalidate: { $set: false },
+            data: { $set: [] }
+        }
+    }),
+    [removeWeather]: (state, { payload }) => update(state, {
+        weather: {
+            data: { $set: payload }
         }
     }),
 };

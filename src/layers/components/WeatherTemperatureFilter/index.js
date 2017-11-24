@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
 import Presenter from './WeatherTemperatureFilter';
-import { getWeatherDegreeRange, setTemperatureFilter, getDegree } from '../../core';
+import { getWeatherTemperatureRange, setTemperatureFilter, getDegree } from '../../core';
 
 const mapStateToProps = (state, props) => ({
-    range: getWeatherDegreeRange(state),
+    range: getWeatherTemperatureRange(state),
     value: getDegree(state),
 })
 

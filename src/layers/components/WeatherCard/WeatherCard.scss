@@ -30,10 +30,13 @@
 
 .WeatherCard__WeatherIcon {
   width: 100px;
-  background-color: rgb(255, 221, 221);
   display: flex;
   justify-content: center;
   align-items: center;
+
+  > img {
+    width: 100%;
+  }
 }
 
 .WeatherCard__WeatherDegree {

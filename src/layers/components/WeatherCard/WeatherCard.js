@@ -4,7 +4,7 @@ import { getCesiumDegree, getWind, getPressure } from '../../utils';
 
 import './WeatherCard.scss'
 
-const WeatherCard = ({ cityName, degree, wind, preassure, actionComponent }) => (
+const WeatherCard = ({ cityName, temperature, wind, pressure, actionComponent, icon }) => (
     <div className="WeatherCard">
         <div className="WeatherCard__Header">
             <div className="WeatherCard__CityName">
@@ -16,10 +16,10 @@ const WeatherCard = ({ cityName, degree, wind, preassure, actionComponent }) => 
         </div>
         <div className="WeatherCard__MainInfo">
             <div className="WeatherCard__WeatherIcon">
-                icon
+                <img src={icon} alt="" />
             </div>
             <div className="WeatherCard__WeatherDegree">
-                {getCesiumDegree(degree)}
+                {getCesiumDegree(temperature)}
             </div>
         </div>
         <div className="WeatherCard__AdditionalInfo">
@@ -27,7 +27,7 @@ const WeatherCard = ({ cityName, degree, wind, preassure, actionComponent }) => 
                 {getWind(wind)}
             </div>
             <div className="WeatherCard__AdditionalInfoCell">
-                {getPressure(preassure)}
+                {getPressure(pressure)}
             </div>
         </div>
     </div>
@@ -35,9 +35,9 @@ const WeatherCard = ({ cityName, degree, wind, preassure, actionComponent }) => 
 
 WeatherCard.propTypes = {
     cityName: propTypes.string,
-    degree: propTypes.number,
+    temperature: propTypes.number,
     wind: propTypes.number,
-    preassure: propTypes.number,
+    pressure: propTypes.number,
     actionComponent: propTypes.node,
 }
 

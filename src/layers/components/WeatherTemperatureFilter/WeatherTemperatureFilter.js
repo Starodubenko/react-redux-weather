@@ -6,7 +6,7 @@ import TemperatureDegreeIndicator from '../TemperatureDegreeIndicator';
 
 import './WeatherTemperatureFilter.scss'
 
-class WeatherTemperatureFilter extends React.Component {
+class WeatherTemperatureFilter extends React.PureComponent {
     onTemperetureSliderChange = (degree) => this.props.setTemperatureFilter({ degree: Math.round(degree) });
 
     render() {

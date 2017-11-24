@@ -1,34 +1,37 @@
-import { getSelectedCityIds, getCityList, getDegree } from "../state";
-import { forEach, filter, includes } from "lodash-es";
+import { getDegree, getWeatherList } from "../state";
+import { forEach, filter } from "lodash-es";
 
-const getCitiesBySelectedIds = (state) => {
-    const selectedCityIds = getSelectedCityIds(state);
-    const cityList = getCityList(state);
-
-    return filter(cityList, item => includes(selectedCityIds, item.id));
-}
-
-export const getSelectedCities = (state) => {
+export const getWeather = (state) => {
     const filterDegree = getDegree(state);
 
-    return filter(getCitiesBySelectedIds(state), item => {
-        return item.degree === filterDegree;
+    const result = filter(getWeatherList(state), item => {
+        return item.temperature === filterDegree;
     })
+    debugger;
+
+    return result;
 }
 
-export const getWeatherDegreeRange = (state) => {
-    const selectedCityList = getCitiesBySelectedIds(state);
+export const getWeatherTemperatureRange = (state) => {
+    const weatherList = getWeatherList(state);
 
     let min = 100;
     let max = 0;
 
-    forEach(selectedCityList, city => {
-        if (city.degree < min) {
-            min = city.degree;
+    // if (weatherList.length === 1){
+    //     return {
+    //         min: weatherList[0].temperature,
+    //         max: weatherList[0].temperature
+    //     }
+    // }
+
+    forEach(weatherList, weather => {
+        if (weather.temperature < min) {
+            min = weather.temperature;
         }
 
-        if (city.degree > max) {
-            max = city.degree;
+        if (weather.degree > max) {
+            max = weather.temperature;
         }
       });
 

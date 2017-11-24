@@ -4,7 +4,7 @@ import Paper from 'material-ui/Paper';
 import { CSSTransitionGroup } from 'react-transition-group'
 
 import WeatherCard from '../../WeatherCard';
-import RemoveCityButton from '../../RemoveCityButton';
+import RemoveWeatherButton from '../../RemoveWeatherButton';
 
 import './Tiles.scss'
 
@@ -45,7 +45,7 @@ Tiles.defaultProps = {
             degree={-10}
             wind={10}
             preassure={700}
-            actionComponent={<RemoveCityButton />}
+            actionComponent={<RemoveWeatherButton />}
         />,
         <WeatherCard
             key="WeatherCard_2"

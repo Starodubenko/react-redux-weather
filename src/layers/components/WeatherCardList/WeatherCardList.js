@@ -3,7 +3,7 @@ import propTypes from 'prop-types';
 
 import WeatherCard from '../WeatherCard';
 import Tiles from '../common/Tiles';
-import RemoveCityButton from '../RemoveCityButton';
+import RemoveWeatherButton from '../RemoveWeatherButton';
 
 import './WeatherCardList.scss'
 
@@ -12,10 +12,11 @@ export default class WeatherCardList extends React.Component {
         return this.props.cityList.map(item => (
             <WeatherCard
                 cityName={item.name}
-                degree={item.degree}
+                icon={item.conditionIcon}
+                temperature={item.temperature}
                 wind={item.wind}
-                preassure={item.pressure}
-                actionComponent={<RemoveCityButton cityId={item.id} />}
+                pressure={item.pressure}
+                actionComponent={<RemoveWeatherButton cityId={item.id} />}
                 key={item.id}
             />
         ))
@@ -32,7 +33,7 @@ export default class WeatherCardList extends React.Component {
 
 WeatherCardList.propTypes = {
     cityList: propTypes.arrayOf(propTypes.shape({
-        id: propTypes.string,
+        id: propTypes.number,
         name: propTypes.string,
         degree: propTypes.number,
         wind: propTypes.number,

@@ -8,3 +8,9 @@ export const getCityMap = (state) => {
     return reduce(getCityList(state), (acc, item) => acc[item.id] = item, {});
 };
 export const getCityById = (state, id) => getCityMap(state)[id];
+
+export const getWeatherList = (state) => getEntities(state)['weather'].data;
+export const getWeatherMap = (state) => {
+    return reduce(getCityList(state), (acc, item) => acc[item.id] = item, {});
+};
+export const getWeatherById = (state, id) => getCityMap(state)[id];

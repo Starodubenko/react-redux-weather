@@ -1,39 +1,7 @@
-// const suggestions = [
-//     { label: 'Afghanistan' },
-//     { label: 'Aland Islands' },
-//     { label: 'Albania' },
-//     { label: 'Algeria' },
-//     { label: 'American Samoa' },
-//     { label: 'Andorra' },
-//     { label: 'Angola' },
-//     { label: 'Anguilla' },
-//     { label: 'Antarctica' },
-//     { label: 'Antigua and Barbuda' },
-//     { label: 'Argentina' },
-//     { label: 'Armenia' },
-//     { label: 'Aruba' },
-//     { label: 'Australia' },
-//     { label: 'Austria' },
-//     { label: 'Azerbaijan' },
-//     { label: 'Bahamas' },
-//     { label: 'Bahrain' },
-//     { label: 'Bangladesh' },
-//     { label: 'Barbados' },
-//     { label: 'Belarus' },
-//     { label: 'Belgium' },
-//     { label: 'Belize' },
-//     { label: 'Benin' },
-//     { label: 'Bermuda' },
-//     { label: 'Bhutan' },
-//     { label: 'Bolivia, Plurinational State of' },
-//     { label: 'Bonaire, Sint Eustatius and Saba' },
-//     { label: 'Bosnia and Herzegovina' },
-//     { label: 'Botswana' },
-//     { label: 'Bouvet Island' },
-//     { label: 'Brazil' },
-//     { label: 'British Indian Ocean Territory' },
-//     { label: 'Brunei Darussalam' },
-//   ];
+const CITIES_API = 'http://api.apixu.com/v1/search.json';
+const WEATHER_API = 'http://api.apixu.com/v1/current.json';
+const USER_KEY = '2e09b726f8fa4116b2965906172411';
+
 const suggestions = [{
   id: '1',
   name: 'Moscow',
@@ -87,4 +55,20 @@ export const fetchCities = (value) => {
 
         setTimeout(() => resolve(result), 0);
     })
+}
+
+export const fetchCityList = (cityNameQuery) => {
+  return new Promise((resolve, reject) => {
+    fetch(`${CITIES_API}?key=${USER_KEY}&q=${cityNameQuery}`)
+    .then((response) => resolve(response.json()))
+    .catch((response) => reject(response.json()))
+  })
+}
+
+export const fetchWeatherByCityName = (cityName) => {
+  return new Promise((resolve, reject) => {
+    fetch(`${WEATHER_API}?key=${USER_KEY}&q=${cityName}`)
+    .then((response) => resolve(response.json()))
+    .catch((response) => reject(response.json()))
+  })
 }

@@ -5,8 +5,8 @@ import Button from 'material-ui/Button';
 import './CityAutoComplete.scss'
 
 export default class CityAutoComplete extends React.Component {
-    selectCityHandler = (cityId) => {
-        this.props.selectCity({ value: cityId });
+    selectCityHandler = (city) => {
+        this.props.selectCity({ value: { id: city.id, name: city.label} });
     }
 
     startCityFetchHandler = (cityName) => {

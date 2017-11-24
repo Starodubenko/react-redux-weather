@@ -115,7 +115,7 @@ class IntegrationAutosuggest extends React.Component {
   };
 
   onSuggestionSelected = (event, { suggestion, suggestionValue, suggestionIndex, sectionIndex, method }) => {
-    this.props.onChange(suggestion.id);
+    this.props.onChange(suggestion);
   }
 
   componentDidMount() {
