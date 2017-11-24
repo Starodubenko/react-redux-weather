@@ -23,7 +23,9 @@ For the future:
         - Extract API mappings into the Adapter layer;
         - Fix buttons styles and header flex ordering for narrow screen;
         - Add sorting of soggested values;
-    
+        - Fix the slider to make possible to show fractional weather value;
+        - Add checkbox to show all weather tiles;
+
     Should have:
         - Core logic tests;
         - JSX snapshot tests tests;
