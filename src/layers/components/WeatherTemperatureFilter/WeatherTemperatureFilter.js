@@ -7,7 +7,7 @@ import TemperatureDegreeIndicator from '../TemperatureDegreeIndicator';
 import './WeatherTemperatureFilter.scss'
 
 class WeatherTemperatureFilter extends React.PureComponent {
-    onTemperetureSliderChange = (degree) => this.props.setTemperatureFilter({ degree: Math.round(degree) });
+    onTemperetureSliderChange = (degree) => this.props.setTemperatureFilter({ degree: degree.toFixed(1) });
 
     render() {
         let { range, value } = this.props;
@@ -33,7 +33,7 @@ WeatherTemperatureFilter.propTypes = {
         min: propTypes.number,
         max: propTypes.number,
     }),
-    value: propTypes.number,
+    value: propTypes.string,
     setTemperatureFilter: propTypes.func,
 }
 

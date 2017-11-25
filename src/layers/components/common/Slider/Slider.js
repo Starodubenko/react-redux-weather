@@ -50,7 +50,7 @@ class Slider extends React.Component {
 Slider.propTypes = {
     min: propTypes.number,
     max: propTypes.number,
-    value: propTypes.number,
+    value: propTypes.string,
     onChange: propTypes.func,
     indicator: propTypes.node,
 }

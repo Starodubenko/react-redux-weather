@@ -11,7 +11,7 @@ const TemperatureDegreeIndicator = ({ value }) => (
 )
 
 TemperatureDegreeIndicator.propTypes = {
-    value: propTypes.number,
+    value: propTypes.string,
 }
 
 TemperatureDegreeIndicator.defaultProps = {

@@ -5,7 +5,7 @@ import { FILTER_REDUCER_NAME_SPACE as NS } from '../../utils';
 import { setTemperatureFilter, setSuggestionsFilter } from './actions';
 
 const initialState = {
-    degree: 0,
+    degree: "0",
 }
 
 const reducer = {
