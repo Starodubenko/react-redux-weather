@@ -20,7 +20,6 @@ For the future:
 
     Must have: 
         - Extract API variable into the .env.local file;
-        - Fix buttons styles and header flex ordering for narrow screen;
         - Add sorting of soggested values;
         - Fix the slider to make possible to show fractional weather value;
         - Add checkbox to show all weather tiles;

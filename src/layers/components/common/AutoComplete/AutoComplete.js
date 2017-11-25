@@ -100,6 +100,21 @@ class IntegrationAutosuggest extends React.Component {
     this.setState({ value: '' });
   }
 
+  getSortedSuggestions = () => {
+    return this.props.suggestions.sort((valueA, valueB) => {
+      const value = this.state.value;
+      const a = valueA.label.indexOf(value);
+      const b = valueB.label.indexOf(value);
+      if (a > b && b !== -1) {
+        return 1;
+      }
+      if (a < b || b === -1) {
+        return -1;
+      }
+      return 0;
+    })
+  }
+
   handleSuggestionsFetchRequested = ({ value }) => {
     if (value && this.state.value !== value) {
       this.props.fetchRequest(value);
@@ -123,7 +138,7 @@ class IntegrationAutosuggest extends React.Component {
   }
 
   render() {
-    const { classes, suggestions } = this.props;
+    const { classes } = this.props;
     return (
       <Autosuggest
         theme={{
@@ -139,7 +154,7 @@ class IntegrationAutosuggest extends React.Component {
         onSuggestionSelected={this.onSuggestionSelected}
         getSuggestionValue={getSuggestionValue}
         renderSuggestion={renderSuggestion}
-        suggestions={suggestions}
+        suggestions={this.getSortedSuggestions()}
         inputProps={{
           autoFocus: true,
           classes,

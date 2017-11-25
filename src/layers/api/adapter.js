@@ -20,7 +20,6 @@ export const fetchCityList = (cityNameQuery) => {
     return new Promise((resolve, reject) => {
         fetchWeatherByCityNameApi(cityName)
         .then(result => {
-            debugger;
             resolve(
                 [{
                     conditionIcon: result.current.condition.icon,
