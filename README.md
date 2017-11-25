@@ -2,7 +2,7 @@ Weather
 
 React-Redux Application
 
-API: was taken fron https://www.apixu.com/doc/examples.aspx service.
+API: was taken from https://www.apixu.com/doc/examples.aspx service.
 
 API Exapmles:
 
@@ -20,7 +20,6 @@ For the future:
 
     Must have: 
         - Extract API variable into the .env.local file;
-        - Extract API mappings into the Adapter layer;
         - Fix buttons styles and header flex ordering for narrow screen;
         - Add sorting of soggested values;
         - Fix the slider to make possible to show fractional weather value;
@@ -30,4 +29,4 @@ For the future:
         - Core logic tests;
         - JSX snapshot tests tests;
         - Reducers tests;
-        - Adapter tests; 
+        - Adapter tests;

@@ -1,5 +1,5 @@
 import { select, call, put, takeLatest, takeEvery } from 'redux-saga/effects';
-import { map, concat, pullAllBy } from 'lodash-es';
+import { concat, pullAllBy } from 'lodash-es';
 import { fetchCityList, fetchWeatherByCityName } from '../../api';
 import {
   startCityFetch,
@@ -20,21 +20,12 @@ import {
 function* runFetchCity(action) {
   try {
     const result = yield call(fetchCityList, action.payload.cityName);
-    
+
     yield put(endCityFetch(result));
-    yield call(getSuggestions, result);
+    yield put(setSuggestions({ suggestions: result }))
   } catch (e) {
      yield put(failCityFetch(e));
   }
-}
-
-function* getSuggestions(cityList) {
-  const suggestions = map(cityList, city => ({
-      id: city.id,
-      label: city.name,
-    })
-  )
-  yield put(setSuggestions({ suggestions }))
 }
 
 function* addSelectedSuggestion() {
@@ -48,18 +39,12 @@ function* addSelectedSuggestion() {
 function* runFetchWeather(action) {
   try {
     const state = yield select();
+    debugger;
     const result = yield call(fetchWeatherByCityName, action.payload.city.name);
-    const cityWeather = [{
-        id: action.payload.city.id,
-        name: action.payload.city.name,
-        conditionIcon: result.current.condition.icon,
-        conditionText: result.current.condition.text,
-        temperature: result.current.temp_c,
-        wind: result.current.wind_kph,
-        pressure: result.current.pressure_mb,
-    }];
+    result[0].id = action.payload.city.id;
+    result[0].name = action.payload.city.name;
     const currentWeatherList = getWeatherList(state)
-    const resultArray = concat(pullAllBy(currentWeatherList, cityWeather, 'id'), cityWeather);
+    const resultArray = concat(pullAllBy(currentWeatherList, result, 'id'), result);
 
     yield put(endWeatherFetch(resultArray));
   } catch (e) {

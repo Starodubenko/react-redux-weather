@@ -7,7 +7,6 @@ export const getWeather = (state) => {
     const result = filter(getWeatherList(state), item => {
         return item.temperature === filterDegree;
     })
-    debugger;
 
     return result;
 }

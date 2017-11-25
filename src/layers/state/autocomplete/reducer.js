@@ -20,7 +20,7 @@ const reducer = {
         suggestions: { $set: payload.suggestions },
     }),
     [clearSuggestions]: (state, { payload } ) => update(state, {
-        suggestions: [],
+        suggestions: { $set: [] },
     }),
 };
 
