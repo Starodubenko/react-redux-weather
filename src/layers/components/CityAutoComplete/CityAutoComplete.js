@@ -1,6 +1,7 @@
 import * as React from 'react';
 import AutoComplete from '../../components/common/AutoComplete'
 import Button from 'material-ui/Button';
+import AddIcon from 'material-ui-icons/Add';
 
 import './CityAutoComplete.scss'
 
@@ -31,7 +32,9 @@ export default class CityAutoComplete extends React.Component {
                     clearSuggestions={this.props.clearSuggestions}
                     returnRef={this.returnRef}
                 />
-                <Button color="primary" onClick={this.addSelectedCity}>Add</Button>
+                <Button color="primary" onClick={this.addSelectedCity}>
+                    <AddIcon />
+                </Button>
             </div>
         )
     }

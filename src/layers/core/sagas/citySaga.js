@@ -39,7 +39,6 @@ function* addSelectedSuggestion() {
 function* runFetchWeather(action) {
   try {
     const state = yield select();
-    debugger;
     const result = yield call(fetchWeatherByCityName, action.payload.city.name);
     result[0].id = action.payload.city.id;
     result[0].name = action.payload.city.name;

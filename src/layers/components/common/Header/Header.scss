@@ -9,5 +9,11 @@
 .Header__Cell {
   display: flex;
   align-items: center;
-  min-width: 369px;
+  min-width: 384px;
+}
+
+@media only screen and (max-width:768px){
+  .Header {
+    flex-wrap: wrap-reverse;
+  }
 }
