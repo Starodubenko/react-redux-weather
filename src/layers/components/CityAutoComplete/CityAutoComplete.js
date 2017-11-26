@@ -8,6 +8,7 @@ import './CityAutoComplete.scss'
 export default class CityAutoComplete extends React.Component {
     selectCityHandler = (city) => {
         this.props.selectCity({ value: { id: city.id, name: city.label} });
+        setTimeout(() => this.addButtonRef.focus(), 0);
     }
 
     startCityFetchHandler = (cityName) => {
@@ -17,9 +18,11 @@ export default class CityAutoComplete extends React.Component {
     addSelectedCity = (cityName) => {
         this.props.addSelectedCity();
         this.autocopleteRef.clearValue();
+        setTimeout(() => this.autocopleteRef.focus(), 0);
     }
 
-    returnRef = ref => this.autocopleteRef = ref;
+    returnAutoCompleteRef = ref => this.autocopleteRef = ref;
+    returnAddButtonRef = ref => this.addButtonRef = ref;
 
     render () {
         return (
@@ -30,9 +33,10 @@ export default class CityAutoComplete extends React.Component {
                     onChange={this.selectCityHandler}
                     fetchRequest={this.startCityFetchHandler}
                     clearSuggestions={this.props.clearSuggestions}
-                    returnRef={this.returnRef}
+                    returnRef={this.returnAutoCompleteRef}
+                    placeholder="Start typing city name"
                 />
-                <Button color="primary" onClick={this.addSelectedCity}>
+                <Button rootRef={this.returnAddButtonRef} color="primary" onClick={this.addSelectedCity}>
                     <AddIcon />
                 </Button>
             </div>

@@ -20,8 +20,6 @@ For the future:
 
     Must have: 
         - Extract API variable into the .env.local file;
-        - Add sorting of soggested values;
-        - Fix the slider to make possible to show fractional weather value;
         - Add checkbox to show all weather tiles;
 
     Should have:
@@ -29,3 +27,5 @@ For the future:
         - JSX snapshot tests tests;
         - Reducers tests;
         - Adapter tests;
+        - ensyme tests;
+        - auto tests.

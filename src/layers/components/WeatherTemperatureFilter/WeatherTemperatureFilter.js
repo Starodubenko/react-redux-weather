@@ -2,26 +2,33 @@ import * as React from 'react';
 import propTypes from 'prop-types';
 
 import Slider from '../common/Slider';
+import Checkbox from '../common/Checkbox';
 import TemperatureDegreeIndicator from '../TemperatureDegreeIndicator';
 
 import './WeatherTemperatureFilter.scss'
 
 class WeatherTemperatureFilter extends React.PureComponent {
     onTemperetureSliderChange = (degree) => this.props.setTemperatureFilter({ degree: degree.toFixed(1) });
+    switchTemperatureFilter = (value) => this.props.switchTemperatureFilter({ active: value });
 
     render() {
-        let { range, value } = this.props;
-        if (value == null) {
-            value = range.min;
+        let { range, sliderValue, checkboxValue, isSliderActive } = this.props;
+        if (sliderValue == null) {
+            sliderValue = range.min;
         }
         return (
             <div className="WeatherTemperatureFilter">
                 <Slider 
                     min={range.min} 
                     max={range.max} 
-                    value={value} 
+                    value={sliderValue} 
                     onChange={this.onTemperetureSliderChange}
                     indicator={<TemperatureDegreeIndicator />}
+                    disabled={!isSliderActive}
+                />
+                <Checkbox 
+                    onChange={this.switchTemperatureFilter}
+                    value={checkboxValue}
                 />
             </div>
         )
@@ -33,8 +40,11 @@ WeatherTemperatureFilter.propTypes = {
         min: propTypes.number,
         max: propTypes.number,
     }),
-    value: propTypes.string,
+    sliderValue: propTypes.string,
+    checkboxValue: propTypes.bool,
+    isSliderActive: propTypes.bool,
     setTemperatureFilter: propTypes.func,
+    switchTemperatureFilter: propTypes.func,
 }
 
 

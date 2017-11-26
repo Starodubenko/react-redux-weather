@@ -1,20 +1,22 @@
-import { getDegree, getWeatherList } from "../state";
+import { getDegree, getWeatherList, isTemperatureFilterActive } from "../state";
 import { forEach, filter } from "lodash-es";
 
 export const getWeather = (state) => {
     const filterDegree = getDegree(state);
+    const weatherList = getWeatherList(state);
+    const isFilterActive = isTemperatureFilterActive(state);
 
-    const result = filter(getWeatherList(state), item => {
-        return item.temperature == filterDegree;
-    })
-
-    return result;
+    if (!isFilterActive) {
+        return weatherList;
+    }
+    // eslint-disable-next-line
+    return filter(weatherList, item => item.temperature == filterDegree)
 }
 
 
 export const getCurrentDegree = (state) => {
     const temperatureRage = getWeatherTemperatureRange(state);
-    if (temperatureRage.min == temperatureRage.max) {
+    if (temperatureRage.min === temperatureRage.max) {
         return temperatureRage.min + '';
     }
     

@@ -15,8 +15,8 @@ export const getCesiumDegree = (value) => {
     return resultString;
 }
 export const getWind = (value) => {
-    return `Wind: ${value}`;
+    return `Wind: ${value} m/s`;
 }
 export const getPressure = (value) => {
-    return `Pressure: ${value}`
+    return `Pressure: ${value} mm`
 }

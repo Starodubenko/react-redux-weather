@@ -96,9 +96,8 @@ class IntegrationAutosuggest extends React.Component {
     value: '',
   }
 
-  clearValue = () => {
-    this.setState({ value: '' });
-  }
+  clearValue = () => this.setState({ value: '' });
+  focus = () => this.autosuggestRef.focus();
 
   getSortedSuggestions = () => {
     return this.props.suggestions.sort((valueA, valueB) => {
@@ -137,10 +136,13 @@ class IntegrationAutosuggest extends React.Component {
     this.props.returnRef(this);
   }
 
+  inputRef = ref => this.autosuggestRef = ref.input;
+
   render() {
     const { classes } = this.props;
     return (
       <Autosuggest
+        ref={this.inputRef}
         theme={{
           container: classes.container,
           suggestionsContainerOpen: classes.suggestionsContainerOpen,
@@ -158,7 +160,7 @@ class IntegrationAutosuggest extends React.Component {
         inputProps={{
           autoFocus: true,
           classes,
-          placeholder: 'Start typing city name',
+          placeholder: this.props.placeholder,
           value: this.state.value,
           onChange: this.handleChange,
         }}
@@ -174,6 +176,7 @@ IntegrationAutosuggest.propTypes = {
   clearSuggestions: PropTypes.func,
   suggestions: PropTypes.any,
   returnRef: PropTypes.func,
+  placeholder: PropTypes.string,
 };
 
 IntegrationAutosuggest.defaultProps = {

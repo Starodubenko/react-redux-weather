@@ -18,7 +18,8 @@ class Slider extends React.Component {
 
     shouldComponentUpdate(nextProps, nextState) {
         if (nextProps.max !== this.props.max ||
-            nextProps.min !== this.props.min) {
+            nextProps.min !== this.props.min ||
+            nextProps.disabled !== this.props.disabled) {
             return true;
         }
 
@@ -30,7 +31,7 @@ class Slider extends React.Component {
             <div className="Slider">
                 <div className="mdc-slider" tabIndex="0" role="slider"
                 aria-valuemin={this.props.min} aria-valuemax={this.props.max} aria-valuenow={this.props.value}
-                aria-label="Select Value">
+                aria-label="Select Value" aria-disabled={this.props.disabled}>
                     <div className="mdc-slider__track-container">
                         <div className="mdc-slider__track"></div>
                     </div>
