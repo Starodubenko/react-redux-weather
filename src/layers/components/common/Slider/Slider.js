@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { MDCSlider } from '@material/slider';
+import { MDCSlider } from '@material/slider/dist/mdc.slider';
 import propTypes from 'prop-types';
 
 import './Slider.scss'

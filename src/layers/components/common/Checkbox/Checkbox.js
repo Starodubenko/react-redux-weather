@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { MDCCheckbox } from '@material/checkbox';
+import { MDCCheckbox } from '@material/checkbox/dist/mdc.checkbox';
 import propTypes from 'prop-types';
 
 import './Checkbox.scss'
