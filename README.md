@@ -18,9 +18,6 @@ XML: http://api.apixu.com/v1/search.xml?key=<YOUR_API_KEY>&q=lond
 
 For the future:
 
-    Must have: 
-        - Extract API variable into the .env.local file;
-
     Should have:
         - Core logic tests;
         - JSX snapshot tests tests;
