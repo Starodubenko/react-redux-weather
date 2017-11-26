@@ -15,13 +15,20 @@ XML: http://api.apixu.com/v1/forecast.xml?key=<YOUR_API_KEY>&q=07112&days=7
 Search for cities starting with Lond: JSON: http://api.apixu.com/v1/search.json?key=<YOUR_API_KEY>&q=lond
 XML: http://api.apixu.com/v1/search.xml?key=<YOUR_API_KEY>&q=lond
 
+Configure API variables:
+    1) Create .env.local file in root projec directory.
+    2) Define variables which will be included in process.env object.
 
-For the future:
+Example:
+    REACT_APP_CITIES_API=http://api.apixu.com/v1/search.json
+    REACT_APP_WEATHER_API=http://api.apixu.com/v1/current.json
 
-    Should have:
-        - Core logic tests;
-        - JSX snapshot tests tests;
-        - Reducers tests;
-        - Adapter tests;
-        - ensyme tests;
-        - auto tests.
+    REACT_APP_USER_KEY=<YOUR_API_KEY>
+
+Should have:
+    - Core logic tests;
+    - JSX snapshot tests tests;
+    - Reducers tests;
+    - Adapter tests;
+    - ensyme tests;
+    - auto tests.
