@@ -20,7 +20,6 @@ For the future:
 
     Must have: 
         - Extract API variable into the .env.local file;
-        - Add checkbox to show all weather tiles;
 
     Should have:
         - Core logic tests;

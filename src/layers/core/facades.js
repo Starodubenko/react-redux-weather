@@ -9,8 +9,8 @@ export const getWeather = (state) => {
     if (!isFilterActive) {
         return weatherList;
     }
-    // eslint-disable-next-line
-    return filter(weatherList, item => item.temperature == filterDegree)
+
+    return filter(weatherList, item => item.temperature > filterDegree)
 }
 
 
@@ -39,7 +39,7 @@ export const getWeatherTemperatureRange = (state) => {
 
     forEach(weatherList, weather => {
         if (weather.temperature < min) {
-            min = weather.temperature;
+            min = weather.temperature - 1;
         }
 
         if (weather.temperature > max) {

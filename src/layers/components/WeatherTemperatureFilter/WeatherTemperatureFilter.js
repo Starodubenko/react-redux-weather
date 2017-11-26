@@ -13,9 +13,6 @@ class WeatherTemperatureFilter extends React.PureComponent {
 
     render() {
         let { range, sliderValue, checkboxValue, isSliderActive } = this.props;
-        if (sliderValue == null) {
-            sliderValue = range.min;
-        }
         return (
             <div className="WeatherTemperatureFilter">
                 <Slider 

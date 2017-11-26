@@ -55,9 +55,9 @@ function* removeCityById(action) {
   const state = yield select();
   const currentWeatherList = getWeatherList(state)
 
-  const filteredSelectedCityIds = currentWeatherList.filter(weather => weather.id === action.payload.cityId);
+  const filteredSelectedCityIds = currentWeatherList.filter(weather => weather.id !== action.payload.cityId);
 
-  yield put(removeWeather({ cityIds: filteredSelectedCityIds }))
+  yield put(removeWeather(filteredSelectedCityIds))
 }
 
 function* citySaga() {
